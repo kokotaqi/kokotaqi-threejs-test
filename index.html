@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebTerria</title>
+    <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            color: white;
+            user-select: none
+        }
+
+        body {
+            background: url(./css_sprites.png) -0px -0px no-repeat;
+            width: 1093px;
+            height: 616px;
+            top: 10%;
+            background-size: 130%;
+            animation: background_move 80s infinite normal;
+            overflow: hidden;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        @keyframes background_move {
+
+            0%,
+            100% {
+                background-position-x: 0%;
+            }
+
+            50% {
+                background-position-x: 100%;
+            }
+        }
+
+        .world_selection {
+            font-size: 2.2em;
+            background-image: -webkit-linear-gradient(135deg, #BC95C6, #7DC4CC, #D9A7C7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200%;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 0.05em;
+            cursor: default;
+            line-height: 2em;
+            font-weight: bold;
+            animation: word_backgroundcolor_move 3s infinite;
+        }
+
+        @keyframes word_backgroundcolor_move {
+
+            0%,
+            100% {
+                background-position: 0;
+            }
+
+            50% {
+                background-position: 100%;
+            }
+        }
+
+        .world_selection:hover {
+            font-size: 2.5em;
+            transition: all 500ms;
+        }
+
+        img {
+            position: absolute;
+            width: 40vw;
+            top: -6vh;
+            animation: tree infinite 5s ease;
+        }
+
+        @keyframes tree {
+
+            0%,
+            100% {
+                rotate: 1deg;
+                width: 40vw;
+            }
+
+            50% {
+                rotate: -1deg;
+                width: 42vw;
+            }
+        }
+
+        #icons {
+            scale: 230%;
+            margin-right: 35px;
+            padding-left: 10px;
+            padding-top: 10px;
+            transition: transform 0.5s;
+            color: rgb(255, 255, 255);
+        }
+
+        #icons:hover {
+            scale: 250%;
+            transform: translateY(5px);
+        }
+
+        h3 {
+            position: absolute;
+            top: 20%;
+            animation: tree infinite 5s ease-in-out;
+            text-shadow: 1px 1px 0.5px black;
+        }
+
+        input:focus {
+            outline: 0;
+        }
+
+        input:hover {
+            background-color: rgba(12, 80, 38, 0.5);
+        }
+
+        input {
+            color: white;
+            cursor: pointer;
+            transition: 0.4s;
+            height: 36px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            padding: 0 14px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 100vw;height: 100vh;" class="center">
+        <img src="GameTree.png" style="top: -4em;">
+        <h3></h3>
+        <div class="center" id="main_menu">
+            <div class='world_selection' id="SinglePlayer">SinglePlayer
+            </div>
+            <div class='world_selection'>MutiplyPlayer
+            </div>
+            <div class='world_selection'>Guide
+            </div>
+            <div class='world_selection' id="Setting">Setting
+            </div>
+            <div class='world_selection'>Achievement
+            </div>
+        </div>
+        <div class="center" id="Setting_" style="display: none;">
+            <div class='world_selection' id="Music">Music||On or Off
+            </div>
+        </div>
+        <!-- 进入SinglePlayer界面后 -->
+        <div class="center" id="SinglePlayer_" style="display: none;">
+            <div class='world_selection' id="PlainWorld">PlainWorld
+            </div>
+            <div class='world_selection'>NormalWorld
+            </div>
+        </div>
+        <div class="center" id="Seed" style="display: none;">
+            <input type="text" placeholder="Seed" required id="InputSeed">
+                <div class="world_selection" id="InputSeedEnter">—————Create—————
+                </div>
+        </div>
+        <!-- 下标群 -->
+        <div style="position: absolute;width: 95%; height: 5%;top: 95%;display: flex;">
+            <div class="fab fa-weixin" id="icons"></div>
+            <div class="fab fa-weibo" id="icons"></div>
+            <div class="fab fa-github" id="icons"></div>
+            <div class="fab fa-linkedin" id="icons"></div>
+        </div>
+        <!-- 版本号 -->
+        <div
+            style="position: absolute;width: 5%;height: 5%;top: 95%;left: 95%;font-weight: bold;display: flex;align-items: end;justify-content: end;">
+            V0.1　</div>
+    </div>
+    <script src="load.js"></script>
+</body>
+
+</html>
